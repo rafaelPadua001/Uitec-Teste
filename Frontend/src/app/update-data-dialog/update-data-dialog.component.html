@@ -1,0 +1,40 @@
+<h1 mat-dialog-title color="white">Update Product</h1>
+<div mat-dialog-content>
+  <form #form="ngForm">
+    <mat-form-field>
+      <mat-label>Name</mat-label>
+      <input matInput [(ngModel)]="data.name" name="name">
+    </mat-form-field>
+    <div></div>
+    <mat-form-field>
+      <mat-label>Price</mat-label>
+      <span matPrefix>$</span>
+      <input matInput type="number" step="0.01" [(ngModel)]="data.price" name="price">
+    </mat-form-field>
+
+    <div></div>
+    <mat-form-field>
+      <mat-label>Data de Lançamento</mat-label>
+      <input matInput [matDatepicker]="picker" [(ngModel)]="data.dueDate" name="dueDate">
+      <mat-hint>MM/DD/YYYY</mat-hint>
+      <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+
+    <div></div>
+    <mat-form-field>
+      <mat-label>Quantidade</mat-label>
+      <input matInput type="number" min="0" step="1" [(ngModel)]="data.quantity" name="quantity">
+    </mat-form-field>
+
+    <div></div>
+    <mat-label>Perishable</mat-label>
+    <mat-slide-toggle [(ngModel)]="data.perishable" name="perishable" label="perishable"></mat-slide-toggle>
+
+    <mat-divider></mat-divider>
+    <div class="example-button-row">
+      <button mat-button (click)="validate()">Save</button>
+      <button mat-button>reset</button>
+    </div>
+  </form>
+</div>
